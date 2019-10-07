@@ -23,4 +23,4 @@ $ dig +short @127.0.0.1 localhost
 **!!Resolve only localhost in currently!!**
 
 ## Licence
-[MIT]()
+[MIT](https://github.com/hirokikana/femtoDNS/blob/master/LICENSE)
