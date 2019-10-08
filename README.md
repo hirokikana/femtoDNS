@@ -31,4 +31,4 @@ Example:
 ```
 
 ## Licence
-[MIT]()
+[MIT](https://github.com/hirokikana/femtoDNS/blob/master/LICENSE)
