@@ -21,8 +21,8 @@ $ dig +short @127.0.0.1 localhost
 127.0.0.1
 ```
 
-To resolve any hostname, you need host file add IP address / hostname pair.
-host file is exists in current directory.
+To resolve any hostname, you need hosts file add IP address / hostname pair.
+hosts file is exists in current directory.
 
 Example: 
 ```
