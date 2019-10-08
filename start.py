@@ -129,6 +129,11 @@ class DNSMessageParser():
         
 
 class DNSHandler(socketserver.BaseRequestHandler):
+    def getIpAddr(self, hostname):
+        fd = open('hosts', 'r')
+        for record in filter(lambda x:x.split("\t")[1].startswith(hostname), fd.readlines()):
+            return record.split("\t")[0]
+    
     def handle(self):
 
         parser = DNSMessageParser(self.request[0])
@@ -137,14 +142,16 @@ class DNSHandler(socketserver.BaseRequestHandler):
 
         ## DEBUG Query Hostname
         print(queryHostname)
-        
+
         # --- no error response
         dnsMessage = DNSMessage()
         dnsMessage.setHeader('ID', requestDNSMessage.headers['ID'])
         dnsMessage.setQuestion(queryHostname)
-        
-        if (queryHostname == 'localhost'):
-            dnsMessage.setAnasers('localhost', '127.0.0.1')
+
+        # Check A record from file
+        ipAddr = self.getIpAddr(queryHostname)
+        if ipAddr:
+            dnsMessage.setAnasers(queryHostname, ipAddr)
 
         socket = self.request[1]
         socket.sendto(dnsMessage.toBytes(), self.client_address)

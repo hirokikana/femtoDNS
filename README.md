@@ -20,7 +20,15 @@ Any request query to femtoDNS using dig
 $ dig +short @127.0.0.1 localhost
 127.0.0.1
 ```
-**!!Resolve only localhost in currently!!**
+
+To resolve any hostname, you need host file add IP address / hostname pair.
+host file is exists in current directory.
+
+Example: 
+```
+127.0.0.1	localhost
+127.0.0.1	test
+```
 
 ## Licence
 [MIT]()
