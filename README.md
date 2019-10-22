@@ -17,7 +17,7 @@ $ python start.py
 
 Any request query to femtoDNS using dig
 ```
-$ dig +short @127.0.0.1 localhost
+$ dig +short @127.0.0.1 -p 9999 localhost
 127.0.0.1
 ```
 
